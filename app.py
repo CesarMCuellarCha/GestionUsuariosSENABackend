@@ -23,7 +23,7 @@ DB_PORT = os.getenv("DB_PORT")
 DB_PASSWORD=os.getenv("DB_PASSWORD")
 DB_HOST=os.getenv("DB_HOST")
 
-api.config['SQLALCHEMY_DATABASE_URI']=f"postgresql+psycopg2://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:6543/{DB_NAME}"
+api.config['SQLALCHEMY_DATABASE_URI']=f"postgresql+psycopg2://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 api.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(api)
