@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 from database import db
 from flask_jwt_extended import JWTManager
 import os
+from models import personaModel, usuarioModel
 
 load_dotenv()
 
