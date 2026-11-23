@@ -30,6 +30,8 @@ db.init_app(api)
 
 jwt = JWTManager(api)
 
+from routers.usuarioRouter import *
+
 if __name__ =='__main__':
     with api.app_context():
         db.create_all() # Genera las tablas en el motor de base de datos si no existen

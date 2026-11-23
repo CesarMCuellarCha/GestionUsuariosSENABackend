@@ -11,7 +11,7 @@ class Persona(db.Model):
     foto =  db.Column(db.String(200), nullable=True)
     
     usuarios = db.relationship('Usuario', backref='persona', lazy=True)
-    def to_dict(self):
+    def toDict(self):
         return{
             "idPersona": self.idPersona,
             "nombres": self.nombres,
