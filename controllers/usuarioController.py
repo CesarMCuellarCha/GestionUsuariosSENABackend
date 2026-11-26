@@ -107,5 +107,17 @@ class UsuarioController:
         except Exception as e:
             db.session.rollback()
             return {"error": f"Error interno al registrar usuario: {str(e)}"}, 500
+        
+        
+    @staticmethod
+    def validarCredenciales(username, password):
+        usuario = Usuario.query.filter_by(username=username).first()
+        if not usuario or not usuario.verificarPassword(password):
+            return {"error": "Credenciales inválidas"}, 401
+        
+        if usuario.estado != 'Activo':
+            return {"error": "El usuario se encuentra inactivo"}, 403
+
+        return usuario
 
    

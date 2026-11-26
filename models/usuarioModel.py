@@ -14,7 +14,7 @@ class Usuario(db.Model):
     def setPassword(self, passwordPlano):
         self.password = generate_password_hash(passwordPlano)
 
-    def checkPassword(self, passwordPlano):
+    def verificarPassword(self, passwordPlano):
         return check_password_hash(self.password, passwordPlano)
     
     def toDict(self):
